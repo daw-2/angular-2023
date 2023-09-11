@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Pizza } from './models/pizza';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent {
     { id: 3, name: 'Orientale', price: 11, image: 'orientale.jpg' },
     { id: 4, name: 'Cannibale', price: 9, image: 'cannibale.jpg' }
   ];
+  user: User = new User('Mota', 'Fiorella', '2019-12-31', 'https://i.pravatar.cc/150');
 
   switchPizza(): void {
     let tmp = this.selectedPizza;
