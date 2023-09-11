@@ -1,2 +1,11 @@
 <h1>{{ title }}</h1>
-<h2>{{ name }}</h2>
+
+<h2>{{ pizza.name }}</h2>
+<p>{{ pizza.price }} €</p>
+<img [src]="'assets/pizzas/' + pizza.image"
+    [alt]="pizza.name"
+    *ngIf="pizza.image">
+<p *ngIf="!pizza.image">Pas d'image</p>
+<input [(ngModel)]="pizza.name">
+
+<button (click)="switchPizza()">Changer</button>
