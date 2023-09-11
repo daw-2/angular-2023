@@ -9,17 +9,22 @@ import { Pizza } from './models/pizza';
 export class AppComponent {
   title: string = 'Pizza Party';
   name: string = '4 fromages';
-  pizza: Pizza = {
-    id: 1,
-    name: '4 fromages',
-    price: 4.99,
-    image: '4-fromages.jpg',
-  };
+  selectedPizza!: Pizza;
   pizza2: Pizza = new Pizza(2, 'Reine', 5.99);
+  pizzas: Pizza[] = [
+    new Pizza(1, 'Reine', 12, 'reine.jpg'),
+    { id: 2, name: '4 fromages', price: 13, image: '4-fromages.jpg' },
+    { id: 3, name: 'Orientale', price: 11, image: 'orientale.jpg' },
+    { id: 4, name: 'Cannibale', price: 9, image: 'cannibale.jpg' }
+  ];
 
   switchPizza(): void {
-    let tmp = this.pizza;
-    this.pizza = this.pizza2;
+    let tmp = this.selectedPizza;
+    this.selectedPizza = this.pizza2;
     this.pizza2 = tmp;
+  }
+
+  selectPizza(pizza: Pizza): void {
+    this.selectedPizza = pizza;
   }
 }

@@ -1,11 +1,21 @@
 <h1>{{ title }}</h1>
 
-<h2>{{ pizza.name }}</h2>
-<p>{{ pizza.price }} €</p>
-<img [src]="'assets/pizzas/' + pizza.image"
-    [alt]="pizza.name"
-    *ngIf="pizza.image">
-<p *ngIf="!pizza.image">Pas d'image</p>
-<input [(ngModel)]="pizza.name">
+<div *ngIf="selectedPizza">
+    <h2>{{ selectedPizza.name }}</h2>
+    <p>{{ selectedPizza.price }} €</p>
+    <img [src]="'assets/pizzas/' + selectedPizza.image"
+        [alt]="selectedPizza.name"
+        *ngIf="selectedPizza.image">
+    <p *ngIf="!selectedPizza.image">Pas d'image</p>
+    <input [(ngModel)]="selectedPizza.name">
+    <button (click)="switchPizza()">Changer</button>
+</div>
 
-<button (click)="switchPizza()">Changer</button>
+<h2>Les pizzas</h2>
+<ul class="pizzas">
+    <li *ngFor="let pizza of pizzas; index as i"
+        (click)="selectPizza(pizza)"
+        [class.selected]="pizza === selectedPizza">
+        <span>{{ i }}: {{ pizza.name }}</span>
+    </li>
+</ul>
