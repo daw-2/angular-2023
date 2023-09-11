@@ -1,0 +1,9 @@
+<div *ngIf="selectedPizza">
+    <h2>{{ selectedPizza.name }}</h2>
+    <p>{{ selectedPizza.price }} €</p>
+    <img [src]="'assets/pizzas/' + selectedPizza.image"
+        [alt]="selectedPizza.name"
+        *ngIf="selectedPizza.image">
+    <p *ngIf="!selectedPizza.image">Pas d'image</p>
+    <input [(ngModel)]="selectedPizza.name">
+</div>
