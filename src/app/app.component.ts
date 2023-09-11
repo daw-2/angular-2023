@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pizza } from './models/pizza';
 import { User } from './models/user';
+import { Ingredient } from './models/ingredient';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,10 @@ export class AppComponent {
     { id: 4, name: 'Cannibale', price: 9, image: 'cannibale.jpg' }
   ];
   user: User = new User('Mota', 'Fiorella', '2019-12-31', 'https://i.pravatar.cc/150');
+  ingredients: Array<Ingredient> = [
+    { id: 1, name: 'Tomate', weight: 20, price: 0.50, image: 'tomate.png' },
+    { id: 2, name: 'Avocat', weight: 60, price: 1.50, image: 'avocat.png' }
+  ];
 
   switchPizza(): void {
     let tmp = this.selectedPizza;
