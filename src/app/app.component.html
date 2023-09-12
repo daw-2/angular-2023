@@ -1,4 +1,8 @@
 <h1>{{ title }}</h1>
+<a routerLink="/">Accueil</a>
+<a routerLink="/pizzas">Les pizzas</a>
+
+<router-outlet></router-outlet>
 
 <app-pizza [pizza]="selectedPizza"></app-pizza>
 <div *ngIf="selectedPizza">
