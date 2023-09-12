@@ -1,5 +1,13 @@
 # Pizzaparty
 
+## Installation
+
+Ne pas oublier de lancer la commande :
+
+```bash
+npm install
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
 
 ## Development server

@@ -14,5 +14,7 @@
     </li>
 </ul>
 
-<app-ingredient-list [ingredients]="ingredients"></app-ingredient-list>
+<app-ingredient-list [ingredients]="ingredients"
+    (selected)="selectIngredient($event)"
+></app-ingredient-list>
 <app-author [author]="user"></app-author>

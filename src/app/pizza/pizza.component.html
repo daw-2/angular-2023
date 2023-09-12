@@ -6,4 +6,5 @@
         *ngIf="selectedPizza.image">
     <p *ngIf="!selectedPizza.image">Pas d'image</p>
     <input [(ngModel)]="selectedPizza.name">
+    <app-ingredient-list [ingredients]="selectedPizza.ingredients"></app-ingredient-list>
 </div>

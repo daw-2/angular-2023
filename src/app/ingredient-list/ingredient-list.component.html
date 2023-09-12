@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let ingredient of ingredients">
+    <li *ngFor="let ingredient of ingredients" (click)="selected.emit(ingredient)">
         {{ ingredient.name }}
         <img [src]="'assets/ingredients/' + ingredient.image" [alt]="ingredient.name" width="50" />
     </li>
