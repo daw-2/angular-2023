@@ -15,6 +15,7 @@ export class AppComponent {
   selectedPizza!: Pizza;
   pizza2: Pizza = new Pizza(2, 'Reine', 5.99);
   pizzas!: Pizza[];
+  loading: boolean = false;
   user: User = new User('Mota', 'Fiorella', '2019-12-31', 'https://i.pravatar.cc/150?u=fiorella');
   ingredients: Array<Ingredient> = [
     { id: 1, name: 'Tomate', weight: 20, price: 0.50, image: 'tomate.png' },
@@ -25,8 +26,13 @@ export class AppComponent {
 
   // On attend que le composant soit initialisé
   ngOnInit() {
+    this.loading = true;
+
     this.pizzaService.getPizzas()
-      .subscribe(pizzas => this.pizzas = pizzas);
+      .subscribe(pizzas => {
+        this.pizzas = pizzas;
+        this.loading = false;
+      });
   }
 
   switchPizza(): void {
