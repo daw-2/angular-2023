@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Ingredient } from 'src/app/models/ingredient';
 import { Pizza } from 'src/app/models/pizza';
 import { PizzaService } from 'src/app/services/pizza.service';
@@ -8,7 +8,7 @@ import { PizzaService } from 'src/app/services/pizza.service';
   templateUrl: './pizzas.component.html',
   styleUrls: ['./pizzas.component.css']
 })
-export class PizzasComponent {
+export class PizzasComponent implements OnInit {
   selectedPizza!: Pizza;
   pizza2: Pizza = new Pizza(2, 'Reine', 5.99);
   pizzas!: Pizza[];

@@ -1,7 +1,0 @@
-.pizzas li:hover {
-    cursor: pointer;
-}
-
-.pizzas .selected {
-    background-color: lightgray;
-}
