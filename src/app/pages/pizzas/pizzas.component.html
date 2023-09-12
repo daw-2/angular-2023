@@ -1,1 +1,20 @@
-<p>pizzas works!</p>
+<app-pizza [pizza]="selectedPizza"></app-pizza>
+<div *ngIf="selectedPizza">
+    <button (click)="switchPizza()">Changer</button>
+</div>
+
+<h2>Les pizzas</h2>
+<ul class="pizzas">
+    <li *ngFor="let pizza of pizzas; index as i"
+        (click)="selectPizza(pizza)"
+        [class.selected]="pizza === selectedPizza">
+        <span>{{ i }}: {{ pizza.name }}</span>
+    </li>
+</ul>
+<div *ngIf="loading">
+    Chargement...
+</div>
+
+<app-ingredient-list [ingredients]="ingredients"
+    (selected)="selectIngredient($event)"
+></app-ingredient-list>
