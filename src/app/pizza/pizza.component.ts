@@ -14,9 +14,9 @@ export class PizzaComponent {
     let selectedPizza = this.selectedPizza;
     console.log('INIT', selectedPizza);
 
-    setInterval(() => {
+    // setInterval(() => {
       // console.log(selectedPizza);
-    }, 1000);
+    // }, 1000);
   }
 
   ngOnChanges() {
