@@ -25,7 +25,8 @@ export class AppComponent {
 
   // On attend que le composant soit initialisé
   ngOnInit() {
-    this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
+    this.pizzaService.getPizzas()
+      .subscribe(pizzas => this.pizzas = pizzas);
   }
 
   switchPizza(): void {

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { AuthorComponent } from './author/author.component';
 import { IngredientListComponent } from './ingredient-list/ingredient-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IngredientListComponent } from './ingredient-list/ingredient-list.compo
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
