@@ -13,7 +13,15 @@ export class PizzaService {
     return this.http.get<Pizza[]>('http://localhost:3000/pizzas')
       .pipe(
         // Transformer le tableau brut en tableau de Pizzas (Map de l'API avec le modèle)
-        map((data: any) => data.map((item: any) => new Pizza(item.id, item.name, item.price, item.image))),
+        map((data: any[]) => data.map((item: any) => new Pizza(item.id, item.name, item.price, item.image))),
+        delay(500)
+      );
+  }
+
+  getPizza(id: number): Observable<Pizza> {
+    return this.http.get<Pizza>('http://localhost:3000/pizzas/'+id)
+      .pipe(
+        map((data: any) => new Pizza(data.id, data.name, data.price, data.image)),
         delay(500)
       );
   }

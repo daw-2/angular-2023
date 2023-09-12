@@ -9,6 +9,9 @@
         (click)="selectPizza(pizza)"
         [class.selected]="pizza === selectedPizza">
         <span>{{ i }}: {{ pizza.name }}</span>
+
+        <!-- ['/user', 1, 2, 3] => /user/1/2/3 -->
+        <a [routerLink]="['/pizzas', pizza.id]">Visiter</a>
     </li>
 </ul>
 <div *ngIf="loading">

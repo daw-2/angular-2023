@@ -1,0 +1,11 @@
+<div *ngIf="pizza">
+    <a routerLink="/pizzas/1">1</a>
+    <a routerLink="/pizzas/2">2</a>
+    <a routerLink="/pizzas/3">3</a>
+    <a routerLink="/pizzas/4">4</a>
+
+    <h1>{{ pizza.name }}</h1>
+    <p>{{ pizza.price }}</p>
+    <img [src]="'/assets/pizzas/' + pizza.image"
+        [alt]="pizza.name">
+</div>

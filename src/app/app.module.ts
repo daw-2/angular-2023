@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { PizzasComponent } from './pages/pizzas/pizzas.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
+import { PizzaComponent as PizzaPage } from './pages/pizza/pizza.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './modules/app-routing/app-routing.module';
     AuthorComponent,
     IngredientListComponent,
     HomeComponent,
-    PizzasComponent
+    PizzasComponent,
+    PizzaPage
   ],
   imports: [
     BrowserModule,
