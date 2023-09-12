@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Pizza } from './models/pizza';
 import { User } from './models/user';
 import { Ingredient } from './models/ingredient';
+import { PizzaService } from './services/pizza.service';
 
 @Component({
   selector: 'app-root',
@@ -13,17 +14,19 @@ export class AppComponent {
   name: string = '4 fromages';
   selectedPizza!: Pizza;
   pizza2: Pizza = new Pizza(2, 'Reine', 5.99);
-  pizzas: Pizza[] = [
-    new Pizza(1, 'Reine', 12, 'reine.jpg'),
-    new Pizza(2, '4 fromages', 13, '4-fromages.jpg'),
-    new Pizza(3, 'Orientale', 11, 'orientale.jpg'),
-    new Pizza(4, 'Cannibale', 9, 'cannibale.jpg'),
-  ];
+  pizzas!: Pizza[];
   user: User = new User('Mota', 'Fiorella', '2019-12-31', 'https://i.pravatar.cc/150?u=fiorella');
   ingredients: Array<Ingredient> = [
     { id: 1, name: 'Tomate', weight: 20, price: 0.50, image: 'tomate.png' },
     { id: 2, name: 'Avocat', weight: 60, price: 1.50, image: 'avocat.png' }
   ];
+
+  constructor(private pizzaService: PizzaService) {}
+
+  // On attend que le composant soit initialisé
+  ngOnInit() {
+    this.pizzaService.getPizzas().subscribe(pizzas => this.pizzas = pizzas);
+  }
 
   switchPizza(): void {
     let tmp = this.selectedPizza;
@@ -37,6 +40,6 @@ export class AppComponent {
   }
 
   selectIngredient(event: Ingredient): void {
-    this.selectedPizza.ingredients.push(event);
+    this.selectedPizza.ingredients = [event];
   }
 }
