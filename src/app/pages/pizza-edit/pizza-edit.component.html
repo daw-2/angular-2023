@@ -38,3 +38,41 @@
 
     <button [disabled]="pizzaForm.invalid">Modifier</button>
 </form>
+
+<h2>Formulaire par le code</h2>
+<form (ngSubmit)="saveB()" [formGroup]="pizzaFormB">
+    <div>
+        <label for="name">Nom</label>
+        <input type="text" name="name" id="name" formControlName="name">
+        <div *ngIf="pizzaFormB.get('name')?.dirty && pizzaFormB.get('name')?.hasError('required')">
+            Le nom est obligatoire
+        </div>
+        <div *ngIf="pizzaFormB.get('name')?.dirty && pizzaFormB.get('name')?.hasError('minlength')">
+            Le nom doit faire 3 caractères.
+        </div>
+    </div>
+
+    <div>
+        <label for="price">Prix</label>
+        <input type="number" name="price" id="price" formControlName="price">
+        <div *ngIf="pizzaFormB.get('price')?.dirty && pizzaFormB.get('price')?.hasError('required')">
+            Le prix est obligatoire.
+        </div>
+        <div *ngIf="pizzaFormB.get('price')?.dirty && (pizzaFormB.get('price')?.hasError('min') || pizzaFormB.get('price')?.hasError('max'))">
+            Le prix doit être entre 1 et 100.
+        </div>
+    </div>
+
+    <div>
+        <label for="image">Image</label>
+        <select name="image" id="image" formControlName="image">
+            <option value="">Choisir une image</option>
+            <option *ngFor="let image of images" [value]="image">
+                {{ image }}
+            </option>
+        </select>
+        <img *ngIf="pizzaFormB.get('image')?.value" [src]="'assets/pizzas/' + pizzaFormB.get('image')?.value" width="100">
+    </div>
+
+    <button [disabled]="pizzaFormB.invalid">Modifier</button>
+</form>
