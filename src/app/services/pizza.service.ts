@@ -26,6 +26,12 @@ export class PizzaService {
       );
   }
 
+  exists(name: string, exclude: number): Observable<boolean> {
+    return this.http.get<any[]>('http://localhost:3000/pizzas?name='+name+'&id_ne='+exclude).pipe(
+      map((data: any[]) => data.length > 0),
+    );
+  }
+
   getFakePizzas(): Observable<Pizza[]> {
     return of([
       new Pizza(1, 'Reine', 12, 'reine.jpg'),

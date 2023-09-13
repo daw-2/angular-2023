@@ -12,6 +12,7 @@ import { PizzasComponent } from './pages/pizzas/pizzas.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { PizzaComponent as PizzaPage } from './pages/pizza/pizza.component';
 import { PizzaEditComponent } from './pages/pizza-edit/pizza-edit.component';
+import { UniquePizzaValidatorDirective } from './directives/unique-pizza-validator.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PizzaEditComponent } from './pages/pizza-edit/pizza-edit.component';
     HomeComponent,
     PizzasComponent,
     PizzaPage,
-    PizzaEditComponent
+    PizzaEditComponent,
+    UniquePizzaValidatorDirective
   ],
   imports: [
     BrowserModule,
