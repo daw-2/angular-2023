@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PizzasComponent } from './pages/pizzas/pizzas.component';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 import { PizzaComponent as PizzaPage } from './pages/pizza/pizza.component';
+import { PizzaEditComponent } from './pages/pizza-edit/pizza-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PizzaComponent as PizzaPage } from './pages/pizza/pizza.component';
     IngredientListComponent,
     HomeComponent,
     PizzasComponent,
-    PizzaPage
+    PizzaPage,
+    PizzaEditComponent
   ],
   imports: [
     BrowserModule,

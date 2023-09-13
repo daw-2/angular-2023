@@ -12,6 +12,7 @@
 
         <!-- ['/user', 1, 2, 3] => /user/1/2/3 -->
         <a [routerLink]="['/pizzas', pizza.id]">Visiter</a>
+        <a [routerLink]="['/pizzas', pizza.id, 'modifier']">Modifier</a>
     </li>
 </ul>
 <div *ngIf="loading">
