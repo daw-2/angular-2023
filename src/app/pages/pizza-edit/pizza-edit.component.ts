@@ -55,6 +55,7 @@ export class PizzaEditComponent {
 
   save(pizza: Pizza): void {
     console.log(pizza, this.pizza);
+    // @todo Faire la mise à jour de la pizza sur l'API
   }
 
   saveB(): void {

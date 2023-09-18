@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PizzasComponent } from './pizzas.component';
 

@@ -13,9 +13,9 @@ import { PizzaService } from '../services/pizza.service';
   }]
 })
 export class UniquePizzaValidatorDirective implements AsyncValidator {
-  private lastError: any = {
+  private lastResult: any = {
     value: null,
-    result: null,
+    error: null,
   };
 
   constructor(private pizzaService: PizzaService) {}
@@ -25,28 +25,24 @@ export class UniquePizzaValidatorDirective implements AsyncValidator {
       return of(null);
     }
 
-    if (this.lastError.value === control.value) {
-      return of(this.lastError.result);
+    // Evite de faire une requête sur une valeur si elle a été faite précédemment
+    if (this.lastResult.value === control.value) {
+      return of(this.lastResult.error);
     }    
 
     // Optimisation sur l'API
     return control.valueChanges.pipe(
       debounceTime(500),
       switchMap(v => {
-        this.lastError.value = control.value;
-        return this.pizzaService.exists(v, 2)
+        this.lastResult.value = control.value;
+        return this.pizzaService.exists(v, 2) // @todo Faire en sorte que le 2 soit dynamique
       }),
       map((exists: boolean) => {
-        this.lastError.result = exists ? { appUniquePizza: true } : null
+        this.lastResult.result = exists ? { appUniquePizza: true } : null
 
-        return this.lastError.result;
+        return this.lastResult.result;
       }),
       first(),
-    );
-
-    return this.pizzaService.exists(control.value, 2).pipe(
-      map((exists: boolean) => exists ? { appUniquePizza: true } : null),
-      delay(500),
     );
   }
 }
